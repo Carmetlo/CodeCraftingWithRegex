@@ -1,10 +1,9 @@
 # Code Crafting with Regex (Matching an HTML)
-
-Introductory paragraph (replace this with your text)
+Regular expressions (regex) are powerful tools for pattern matching within strings. In this tutorial, we'll delve into a specific regex designed to match HTML tags. Understanding this regex will empower you to parse and manipulate HTML content effectively in your web development projects.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this tutorial, we'll dissect the regex `/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/`, breaking down each component to unveil its purpose and functionality. From anchors that assert the start and end of the string to quantifiers capturing attributes within HTML tags, we'll explore how each element contributes to the overall pattern. This regex not only ensures the correct opening and closing of tags but also accommodates self-closing tags. We'll demystify character classes, examine the usefulness of flags for case-insensitive matching, and explore the concept of back-references for tag consistency. By the end, you'll have a comprehensive understanding of this regex and be ready to wield its power in your own projects.
 
 ## Table of Contents
 - [Code Crafting with Regex (Matching an HTML)](#code-crafting-with-regex-matching-an-html)
@@ -54,13 +53,17 @@ Enables case-insensitive matching.
 ### Grouping and Capturing
 - `([a-z]+)` - This is a capturing group that captures one or more lowercase letters.
 - `([^<]+)*` - another example of a capturing group that captures one or more characters that are not `<`.
-- `(?:>(.*)<\/\1>|\s+\/>)`
+- `(?:>(.*)<\/\1>|\s+\/>)` this represents a non-capturing group that contains alternatives for the closing part of the tag.
+  - `>(.*)<\/\1>` This will capture the content inside the HTML tag.
+  - `\s+\/>` this will handle the case of self-closing tags.
 ### Bracket Expressions
-
+`[a-z]` this character class will specify the range of characters, as mentioned in the character classes and in this case lowercase letters from `a` to `z`.
 ### Greedy and Lazy Match
-
+The `*?` part represents a lazy match, making the `*` quantifier match as few characters as possible.
 ### Back-references
-
+`\1` is a back-reference.  In this regex, it refers back to the first capturing group.  `([a-z]+)` will ensure that the closing tag matches the opening tag
 ## Author
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+
+Michael Carmelo is a Full Stack Web Development professional with a couple of projects under his belt ready to work.  If you would like learn more or get in touch with the author you can visit his github account at the following:  https://github.com/Carmetlo
